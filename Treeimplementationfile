@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+class node{
+public:
+int data;
+node* left;
+node* right;
+  node(int d)
+  {
+    this->data=d;
+    this->left=NULL;
+    this->right=NULL;
+  }
+};
+node* buildtree(node* root)
+{
+int data ;
+cout<<"enter the data:"<<endl;
+cin>>data;
+root=new node(data);
+if(data==-1)
+{
+    return NULL;
+}
+//inserting in the left of root
+cout<<"enter the data to inserted in the left of :"<<data<<endl;
+root->left=buildtree(root->left);
+//inserting in the right of root
+cout<<"enter the data to inserted in the right of:"<<data<<endl;
+root->right=buildtree(root->right);
+return root;
+
+}
+int main()
+{
+    node* root=NULL;
+    root=buildtree(root);
+    
+}
